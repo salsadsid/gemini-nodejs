@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Submission</title>
+  </head>
+  <body>
+    <h1>Submit a Prompt</h1>
+    <form action="/submit-prompt" method="POST">
+      <textarea
+        name="prompt"
+        rows="4"
+        cols="50"
+        placeholder="Enter your prompt here"
+      ></textarea
+      ><br />
+      <button type="submit">Submit</button>
+    </form>
+    <% if (typeof response !== 'undefined') { %>
+    <h2>Response from Server:</h2>
+    <p><%= response %></p>
+    <% } %>
+  </body>
+</html>
