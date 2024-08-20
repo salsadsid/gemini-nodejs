@@ -5,7 +5,7 @@ import "dotenv/config";
 import express from "express";
 import fetch from "node-fetch";
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 5000;
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
@@ -29,7 +29,7 @@ app.post("/submit-prompt", async (req, res) => {
   const { prompt } = req.body;
 
   try {
-    const response = await fetch("http://localhost:3000/api/prompts", {
+    const response = await fetch("http://localhost:5000/api/prompts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
