@@ -12,7 +12,14 @@ app.set("view engine", "ejs");
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+
+const corsConfig = {
+  origin: "*",
+  credential: true,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+};
+
+app.use(cors(corsConfig));
 // Parse application/json
 app.use(bodyParser.json());
 
