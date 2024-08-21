@@ -36,13 +36,16 @@ app.post("/submit-prompt", async (req, res) => {
   const { prompt } = req.body;
 
   try {
-    const response = await fetch("http://localhost:5000/api/prompts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ prompt }),
-    });
+    const response = await fetch(
+      "https://gemini-nodejs.onrender.com/api/prompts",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ prompt }),
+      }
+    );
 
     const data = await response.json();
     res.render("index", { response: data.response });
