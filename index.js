@@ -1,9 +1,10 @@
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import bodyParser from "body-parser";
 import cors from "cors";
-import "dotenv/config";
+import dotenv from "dotenv";
 import express from "express";
 import fetch from "node-fetch";
+dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -72,7 +73,7 @@ app.post("/api/prompts", async (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running.`);
 });
 
 const model = new ChatGoogleGenerativeAI({
