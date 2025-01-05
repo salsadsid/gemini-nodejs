@@ -72,7 +72,9 @@ app.post("/api/prompts", async (req, res) => {
 });
 
 // Start the server
-app.listen();
+app.listen(() => {
+  console.log("Server started!");
+});
 
 const model = new ChatGoogleGenerativeAI({
   model: "gemini-pro",
