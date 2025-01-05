@@ -6,7 +6,7 @@ import express from "express";
 import fetch from "node-fetch";
 dotenv.config();
 const app = express();
-// const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
@@ -72,8 +72,8 @@ app.post("/api/prompts", async (req, res) => {
 });
 
 // Start the server
-app.listen(() => {
-  console.log("Server started!");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 const model = new ChatGoogleGenerativeAI({
