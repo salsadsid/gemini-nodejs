@@ -33,6 +33,9 @@ app.get("/", (req, res) => {
 
 // Handle form submission
 app.post("/submit-prompt", async (req, res) => {
+  if (!req.body.prompt) {
+    return res.status(400).send("Prompt is required");
+  }
   const { prompt } = req.body;
 
   try {
